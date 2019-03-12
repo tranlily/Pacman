@@ -20,7 +20,7 @@ class PlayGame:
 
     def __init__(self):
         pygame.init()
-        pygame.mixer.music.load('sounds/blueghosts.wav')
+        pygame.mixer.music.load('sounds/fortnite-dance.wav')
         self.game_screen = pygame.display.set_mode((900, 700))
 
         pygame.display.set_caption('Pacman')
