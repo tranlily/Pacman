@@ -14,6 +14,10 @@ pygame
 ## Preview
 ![](preview-pacman.gif)
 
+## Notes
+* Movement is controlled by standard arrow keys
+* Create portals with 'A' and 'S' keys
+
 ## Built With
 
 * PyCharm CE
