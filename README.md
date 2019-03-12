@@ -21,4 +21,4 @@ pygame
 * Piskel
 
 ## Acknowledgements
-Thanks to http://www.classicgaming.cc/classics/pac-man/sounds for the .wav files that mirror the original Pac-Man game by Namco
+Thanks to http://www.classicgaming.cc/ for the .ttf and .wav files that mirror the original Pac-Man game by Namco
