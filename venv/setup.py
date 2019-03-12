@@ -7,11 +7,9 @@ class Intro:
     def __init__(self, screen):
         self.screen = screen
         self.ghost_intros = [
-            ChaseScene(screen, chasers=['blinky.png', 'pinky.png',
-                                        'inky.png', 'clyde.png'],
+            ChaseScene(screen, chasers=['blinky.png', 'pinky.png', 'inky.png', 'clyde.png'],
                        chased=['pacman-horiz.png'], chaser_detail='eyes.png'),
-            ChaseScene(screen, chasers=['ghost_blue.png', 'ghost_white.png',
-                                        'ghost_blue.png', 'ghost_white.png'],
+            ChaseScene(screen, chasers=['ghost_blue.png', 'ghost_white.png', 'ghost_blue.png', 'ghost_white.png'],
                        chased=['pacman-horiz.png'], reverse=True),
             GhostIntro(screen, 'blinky.png', 'BLiNKY'),
             GhostIntro(screen, 'pinky.png', 'PiNKY'),
@@ -43,7 +41,7 @@ class GhostIntro:
     def __init__(self, screen, g_file, name):
         self.screen = screen
         self.ghost_names = Card(screen, name, pos=(screen.get_width() // 2, screen.get_height() // 2))
-        self.ghost_animate = SimpleAnimation(screen, g_file, sheet_offsets=[(0, 0, 32, 32), (0, 32, 32, 32)],
+        self.ghost_animate = Animation(screen, g_file, sheet_offsets=[(0, 0, 32, 32), (0, 32, 32, 32)],
                                      pos=(self.ghost_names.rect.right + self.ghost_names.rect.width // 2,
                                           screen.get_height() // 2),
                                      detail='eyes.png',
@@ -97,7 +95,7 @@ class ChaseScene:
         x_offset = self.x_start
         for chaser in chasers:
             self.chaser_positions.append(x_offset)
-            animation = SimpleAnimation(screen, chaser, sheet_offsets=[(0, 0, 32, 32), (0, 32, 32, 32)],
+            animation = Animation(screen, chaser, sheet_offsets=[(0, 0, 32, 32), (0, 32, 32, 32)],
                                         pos=(x_offset, self.y_pos),
                                         detail=chaser_detail,
                                         frame_delay=150,
@@ -107,7 +105,7 @@ class ChaseScene:
         x_offset += (self.intro_speed * 2)
         for target in chased:
             self.chased_positions.append(x_offset)
-            animation = SimpleAnimation(screen, target, sheet_offsets=[(0, 0, 32, 32),
+            animation = Animation(screen, target, sheet_offsets=[(0, 0, 32, 32),
                                                                        (32, 0, 32, 32),
                                                                        (0, 32, 32, 32),
                                                                        (32, 32, 32, 32),
@@ -140,7 +138,7 @@ class ChaseScene:
             target.blit()
 
 
-class SimpleAnimation(pygame.sprite.Sprite):
+class Animation(pygame.sprite.Sprite):
     def __init__(self, screen, sprite_sheet, sheet_offsets, pos=(0, 0), resize=None,
                  detail=None, frame_delay=None, flip=False):
         super().__init__()

@@ -37,7 +37,7 @@ class Maze:
         self.ghost_spawn = []
         self.build_maze()
 
-    def pellets_left(self):
+    def is_pellets(self):
         return True if self.pellets or self.power_pellets else False
 
     def build_maze(self):

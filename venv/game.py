@@ -172,7 +172,7 @@ class PlayGame:
                     g.disable()
             pygame.time.set_timer(PlayGame.event_start, 0)
             pygame.time.set_timer(PlayGame.event_remake, 4000)
-        elif not self.map_layout.pellets_left() and not self.pause_game:
+        elif not self.map_layout.is_pellets() and not self.pause_game:
             pygame.mixer.stop()
             self.pause_game = True
             pygame.time.set_timer(PlayGame.event_next_level, 1000)
