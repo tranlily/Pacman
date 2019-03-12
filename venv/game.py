@@ -29,7 +29,7 @@ class PlayGame:
         self.hold_score = ScoreController(screen=self.game_screen,
                                             sb_pos=((self.game_screen.get_width() // 5),
                                                     (self.game_screen.get_height() * 0.965)),
-                                            items_image='apple.png',
+                                            items_image='strawb.png',
                                             itc_pos=(int(self.game_screen.get_width() * 0.6),
                                                      self.game_screen.get_height() * 0.965))
         self.map_layout = Maze(screen=self.game_screen, maze_map_file='maze_map.txt')
@@ -42,7 +42,7 @@ class PlayGame:
         self.pacman_player = Pacman(screen=self.game_screen, maze=self.map_layout)
         self.pacman_ghosts = pygame.sprite.Group()
         self.pacman_ghosts_sound = SoundManager(sound_files=['ghost.wav', 'pacman_eatghost.wav', 'pacman_siren.wav'],
-                                                keys=['blue', 'eaten', 'std'],
+                                                keys=['blue', 'eaten', 'siren'],
                                                 channel=Ghost.ghost_audio)
         self.pacman_ghosts_interval_active = 2500
         self.pacman_ghosts_begin_chase = None

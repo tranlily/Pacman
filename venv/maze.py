@@ -6,23 +6,24 @@ from random import randrange
 
 class Maze:
 
-    NEON_BLUE = (25, 25, 166)
-    WHITE = (255, 255, 255)
-    PELLET_YELLOW = (255, 255, 0)
+    BLOCK_COLOR = 22, 41, 249
+    POWER_PELLET = 255, 255, 255
+    PELLET_COLOR = 214, 223, 230
+
 
     def __init__(self, screen, maze_map_file):
         self.screen = screen
         self.map_file = 'maze.txt'
         self.block_size = 22
         self.block_image = pygame.Surface((self.block_size, self.block_size // 2))
-        self.block_image.fill(Maze.NEON_BLUE)
+        self.block_image.fill(Maze.BLOCK_COLOR)
         self.shield_image = pygame.Surface((self.block_size, self.block_size // 2))
-        self.shield_image.fill(Maze.WHITE)
+        self.shield_image.fill(Maze.POWER_PELLET)
         self.pellet_image = pygame.Surface((self.block_size // 4, self.block_size // 4))
-        pygame.draw.circle(self.pellet_image, Maze.PELLET_YELLOW,
+        pygame.draw.circle(self.pellet_image, Maze.PELLET_COLOR,
                            (self.block_size // 8, self.block_size // 8), self.block_size // 8)
         self.ppellet_image = pygame.Surface((self.block_size // 2, self.block_size // 2))
-        pygame.draw.circle(self.ppellet_image, Maze.WHITE,
+        pygame.draw.circle(self.ppellet_image, Maze.POWER_PELLET,
                            (self.block_size // 4, self.block_size // 4), self.block_size // 4)
         with open(self.map_file, 'r') as file:
             self.map_lines = file.readlines()

@@ -238,7 +238,7 @@ class Ghost(Sprite):
         options = self.get_direction_options()
         self.direction = options[0]
         self.state['enabled'] = True
-        self.ghost_sound_manager.play_loop('std')
+        self.ghost_sound_manager.play_loop('siren')
 
     def disable(self):
         self.direction = None
@@ -256,7 +256,7 @@ class Ghost(Sprite):
         self.image, _ = self.regular_ghosts.get_image()
         self.ghost_sound_manager.stop()
         if resume_audio:
-            self.ghost_sound_manager.play_loop('std')
+            self.ghost_sound_manager.play_loop('siren')
 
     def check_path_tile(self):
         self.tile = (self.get_nearest_row(), self.get_nearest_col())
